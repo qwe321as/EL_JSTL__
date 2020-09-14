@@ -1,0 +1,11 @@
+화일의 encoding 설정 변경하는 방법
+
+get방식 요청
+1. url(주소창)에 직접 요청할 때
+2. 서블릿 화일에서 직접 실행할 때
+3. a태그 통한 요청
+4. location 객체를 통한 요청
+5. form에서 method="get"으로 요청할 때
+
+@WebInitParam : 06 ThirdServlet.java
+

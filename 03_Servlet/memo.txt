@@ -1,0 +1,36 @@
+Servlet life cycle(생명주기)
+
+1.해당 서블릿 객체생성(new HelloServlet())-생성자 호출
+
+2. init() : 서블릿 생명주기에서 한번만 실행된다.
+			서블릿 초기화 작업을 수행
+	
+3. service() - 숨어있다.
+	get요청 => doGet()
+	post요청 => doPost()
+
+	이 단계 계속 반복
+
+4. destroy() : 서블릿 화일 수정(변경)-저장 또는 서버 stop 했을 때 한번 호출된다.
+				해당 서블릿 객체 사라진다.
+	
+	
+[Servlet 화일 실행방법]
+1.
+2. project이름-오마-R-R on S - urlmapping 문자열을 url자리에 쓰기 
+
+서블릿 : 자바 클래스 형태의 웹 어플리케이션을 만들수 있는 기술
+		HttpServlet을 상속받아 요청을 처리하는 클래스
+		main없다. 
+		컨테이너가 해당 서블릿 객체를 생성
+		
+
+
+
+
+
+
+
+
+
+	

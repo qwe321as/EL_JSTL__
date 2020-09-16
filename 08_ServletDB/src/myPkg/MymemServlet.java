@@ -80,15 +80,12 @@ public class MymemServlet extends HttpServlet {
 		
 		if(command.equals("/insert.mem")) {
 			System.out.println("insert 요청 들어옴");
-			
 			request.setCharacterEncoding("UTF-8"); 
-			
 			String name = request.getParameter("name");
 			String password = request.getParameter("password");
 			MymemBean bean = new MymemBean(0,name,password);
 			int cnt = dao.insertMymem(bean);
 			System.out.println("insert cnt : " + cnt );
-			
 			viewPage = "Ex01_mymemVia.jsp";
 		}
 		else if(command.equals("/select.mem")) {
@@ -102,9 +99,37 @@ public class MymemServlet extends HttpServlet {
 		}
 		else if(command.equals("/update.mem")) {
 			System.out.println("update 요청 들어옴");
+			request.setCharacterEncoding("UTF-8"); 
+			int id= Integer.parseInt(request.getParameter("id"));
+			String name = request.getParameter("name");
+			String password = request.getParameter("password");
+			MymemBean bean = new MymemBean(id,name,password);
+	        dao.getupate(bean);
+	        viewPage = "/select.mem";
+			
+		}
+		else if(command.equals("/updateF.mem")) {
+			System.out.println("update 요청 들어옴");
+			String id = request.getParameter("id");
+			//id에 해당하는 레코드를 뽑아와 띄워야 수정할수 있겠지
+			MymemBean mb = dao.getOneSelect(id);
+			request.setAttribute("mb", mb);
+			viewPage = "Ex01_mymemUpdateForm.jsp";
+			
 		}
 		else if(command.equals("/delete.mem")) {
 			System.out.println("delete 요청 들어옴");
+			String id = request.getParameter("id");
+			int cnt = dao.deleteMymem(id);
+			if (cnt>0) {
+				System.out.println("성공");
+			}else {
+				System.out.println("실패");
+			}
+			/*
+			 * viewPage = "Ex01_mymemList.jsp"; 이렇게하면 list 값을 받아올수 없어서 오류가 발생한다.
+			 */			
+			viewPage ="/select.mem";
 		}
 		
 		RequestDispatcher dis = request.getRequestDispatcher(viewPage);

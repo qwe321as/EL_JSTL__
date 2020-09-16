@@ -2,10 +2,17 @@
     pageEncoding="UTF-8"%>
     
 Ex01_mymemForm.jsp <br>
+<script type="text/javascript">
 
+function insertData() {
+	alert("추가됨ㅋ");
+	document.myform.action="insert.mem";
+	document.myform.submit();
+}
+</script>
 <h3>회원 가입 폼</h3>
 <!-- select.mem update.mem delete.mem -->
-<form action="insert.mem" method="post" name="myform">
+<form action="" method="post" name="myform">
 	<table border="1">
 		<tr>
 			<td>이름</td>
@@ -19,8 +26,8 @@ Ex01_mymemForm.jsp <br>
 		
 		<tr>
 			<td colspan="2">
-				<!-- <a href="#" onClick="insertData()">회원가입</a> -->
-				<input type="submit" value="회원가입">
+				<a href="#" onClick="insertData()">회원가입</a>
+				<!-- <input type="submit" value="회원가입"> -->
 			</td>
 		</tr>
 		
